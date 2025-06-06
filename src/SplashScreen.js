@@ -1,21 +1,27 @@
+
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import App from './App';
 
-export default function SplashScreen() {
+function SplashScreen() {
   const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate(<App />);
-    }, 5000); // 5 seconds
+      navigate("/app");
+    }, 3000);
     return () => clearTimeout(timer);
   }, [navigate]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-500 text-white">
-      <h1 className="text-4xl font-extrabold mb-4 animate-pulse">🔥 Welcome to Bulan World</h1>
-      <p className="text-lg font-light">Mining & Rewards, All in One Place!</p>
+    <div className="flex flex-col items-center justify-center h-screen bg-black text-white">
+      <img
+        src= "/assets/forwardlion.png" // Replace with your logo path
+        alt="Logo"
+        className="w-40 h-40 rounded-full mb-6 animate-bounce"
+      />
+      <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin border-yellow-400"></div>
     </div>
   );
 }
+
+export default SplashScreen;
